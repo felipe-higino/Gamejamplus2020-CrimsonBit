@@ -37,6 +37,12 @@ public class Room : MonoBehaviour
         return openDirection;
     }
 
+    public void CreateDecoration(){
+        if(Decorations.Length < 1)return;
+        int sort = Random.Range(0,Decorations.Length);
+        Instantiate(Decorations[sort], transform.position,Quaternion.identity);
+    }
+
 
 
     //public int CheckSelectedDirection(int sorted){

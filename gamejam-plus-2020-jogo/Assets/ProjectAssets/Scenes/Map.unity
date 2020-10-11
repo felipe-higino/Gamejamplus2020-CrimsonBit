@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &396926469
 Light:
   m_ObjectHideFlags: 0
@@ -272,10 +272,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0602d0cfbec36564ba025c95d36f390d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfRooms: 30
+  numberOfRooms: 10
   roomPrefab: {fileID: 6823578215347755009, guid: d685ba97d9e677246b55910eadda6026,
     type: 3}
   roomStartPosition: {fileID: 1163056634}
+  player: {fileID: 3690649441123972962, guid: f4356b4fb9044554c970707d4e4dd93c, type: 3}
+  monster: {fileID: 6491120665553023672, guid: 6159272ce84b347419064385e941a4bf, type: 3}
 --- !u!4 &1188390317
 Transform:
   m_ObjectHideFlags: 0
@@ -301,7 +303,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1668250031}
   - component: {fileID: 1668250030}
-  - component: {fileID: 1668250029}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -309,14 +310,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1668250029
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1668250028}
-  m_Enabled: 1
 --- !u!20 &1668250030
 Camera:
   m_ObjectHideFlags: 0
@@ -394,7 +387,7 @@ PrefabInstance:
     - target: {fileID: 6823578215347755009, guid: d685ba97d9e677246b55910eadda6026,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6823578215347755022, guid: d685ba97d9e677246b55910eadda6026,
         type: 3}

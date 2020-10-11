@@ -8,6 +8,7 @@ public class RoomManager : MonoBehaviour
     public GameObject roomPrefab;
     public Transform roomStartPosition;
     public static RoomManager instance;
+    public GameObject player, monster;
     int roomNumber;
     List<GameObject> rooms;
 
@@ -26,11 +27,17 @@ public class RoomManager : MonoBehaviour
     int lastDir = 0;
     public void GenerateRooms(){
         //Creation of first room
+        int playerRoom, monsterRoom;
+        playerRoom = (numberOfRooms/4) -1;
+        monsterRoom = ((numberOfRooms/4)*2)-2;
+        print(playerRoom+" "+monsterRoom);
+
         GameObject newRoom;
         newRoom = Instantiate(roomPrefab,roomStartPosition.position,Quaternion.identity);
         newRoom.name = newRoom.name +" "+(roomNumber+1);
         Room roomScript = newRoom.GetComponent<Room>();
         rooms.Add(newRoom);
+
 
         //Creation of some rooms - setting positions
         for(roomNumber = 1; roomNumber < numberOfRooms; roomNumber++){
@@ -43,8 +50,8 @@ public class RoomManager : MonoBehaviour
             rooms.Add(newRoom);
             roomScript = newRoom.GetComponent<Room>();
         }
-
-        //Creation of walls of rooms
+        int index = 0;
+        //Creation of walls of rooms, decorations
         foreach(GameObject currentRoom in rooms){
             roomScript = currentRoom.GetComponent<Room>();
             Transform[] direction = roomScript.directions;
@@ -58,6 +65,15 @@ public class RoomManager : MonoBehaviour
                     walls[i].SetActive(true);
                 }
             }
+            roomScript.CreateDecoration();
+
+            if(index == playerRoom){
+                Instantiate(player, currentRoom.transform.position, Quaternion.identity);
+            }
+            if(index == monsterRoom){
+                Instantiate(monster, currentRoom.transform.position, Quaternion.identity);
+            }
+            index++;
         }
     }
 

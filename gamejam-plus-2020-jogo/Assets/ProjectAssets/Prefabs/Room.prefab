@@ -152,7 +152,7 @@ Transform:
   m_GameObject: {fileID: 6823578215347755009}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 3, y: 2, z: 3}
   m_Children:
   - {fileID: 6277125737542361697}
   - {fileID: 6823578215563827269}
@@ -211,7 +211,9 @@ MonoBehaviour:
   - {fileID: 6823578215597415220}
   - {fileID: 6823578214388640759}
   - {fileID: 6823578214392140600}
-  Decorations: []
+  Decorations:
+  - {fileID: 6193129227411439230, guid: c9feebfba1b47bc4d881038944520698, type: 3}
+  - {fileID: 5159047520754798442, guid: 46f112beb3a33954c8b85dcd421d8f6b, type: 3}
   openDirection: -1
 --- !u!1 &6823578215563827270
 GameObject:
