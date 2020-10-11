@@ -6,8 +6,10 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody rb;
     public float speed;
+    float run;
     public float horSpeed;
     public bool isClimbing;
+    public Transform foot;
 
     public void setIsClimbing(bool isClimbing)
     {
@@ -23,6 +25,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update() {
         PlayerDirection();
+        PlayerRun();
     }
     void FixedUpdate()
     {
@@ -30,11 +33,12 @@ public class PlayerController : MonoBehaviour
             PlayerClimbing();
         }else{
             PlayerMovement();
+            PlayerJump();
         }
     }
     void PlayerMovement(){
-        Vector3 direction = (transform.forward * speed * Input.GetAxis("Vertical")) +
-        (transform.right * speed * Input.GetAxis("Horizontal"));
+        Vector3 direction = (transform.forward * speed*run * Input.GetAxis("Vertical")) +
+        (transform.right * speed*run * Input.GetAxis("Horizontal"));
         Vector3 move = rb.position + direction * Time.deltaTime;
         rb.MovePosition(move);
     }
@@ -52,6 +56,17 @@ public class PlayerController : MonoBehaviour
         Vector3 rot = transform.eulerAngles;
         rot.y += Input.GetAxis("Mouse X") * horSpeed * Time.deltaTime;
         transform.eulerAngles = rot;
+    }
+    void PlayerRun(){
+        if(Input.GetKey(KeyCode.LeftShift))
+            run = 2f;
+        else
+            run = 1f;
+    }
+    void PlayerJump(){
+        if(Physics.Raycast(foot.position, -transform.up,0.25f))
+        if(Input.GetKey(KeyCode.Space))
+            rb.velocity = transform.up * 5f;
     }
 
 }

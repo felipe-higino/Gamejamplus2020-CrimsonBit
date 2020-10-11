@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public float speed;
     Rigidbody rb;
     public Transform head;
+    public float distance;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -15,20 +16,55 @@ public class Enemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
-    {
-        if(RangeOfViewInArea(15f,0.85f))
-            RotateToPlayer();
+    bool getPlayer;
+    void Update() {
+        HuntPlayer();
+        RotateToPlayer(
+            IsNearby() ||
+            RangeOfViewInArea(distance*1.5f,1f) ||
+            getPlayer
+        );
     }
 
-    void RotateToPlayer(){
-        transform.LookAt(player.transform);
-        Vector3 rot = transform.eulerAngles;
+
+    void FixedUpdate()
+    {
+        
+        MoveToPlayer();
+    }
+    float time = 0;
+    public float TimeToHunt;
+    void HuntPlayer(){
+        if(time >= TimeToHunt){
+            getPlayer = !getPlayer;
+            if(getPlayer)
+                time = TimeToHunt/2;
+            else
+                time = 0f;
+        }else{
+            time += Time.deltaTime;
+        }
+    }
+
+    void RotateToPlayer(bool nearby){
+        head.LookAt(player.transform);
+        Vector3 rot = head.eulerAngles;
         rot.x = 0f;
         rot.z = 0f;
+        if(nearby)
+            transform.rotation = Quaternion.Lerp(
+                transform.rotation,
+                Quaternion.Euler(new Vector3(0,rot.y,0)),
+                0.05f
+            );
+        else{
+            rot.y +=45f;
             transform.eulerAngles = rot;
-        
-        Vector3 move = rb.position + transform.forward *speed *Time.deltaTime;
+        }
+
+    }
+    void MoveToPlayer(){
+        Vector3 move = rb.position + transform.forward *speed*Time.deltaTime;
         rb.MovePosition(move);
     }
 
@@ -43,5 +79,10 @@ public class Enemy : MonoBehaviour
 			return hit.transform.Equals(player.transform);
 		}
 		return false;
+	}
+    bool IsNearby()
+	{
+		return Vector3.Distance(transform.position,player.transform.position) < distance &&
+        transform.position.y - player.transform.position.y < 6f;
 	}
 }
