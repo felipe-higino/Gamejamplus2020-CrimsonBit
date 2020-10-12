@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using FelipeUtils.UIMannagement;
+﻿using FelipeUtils.UIMannagement;
 
 public enum ScreenGroups
 {

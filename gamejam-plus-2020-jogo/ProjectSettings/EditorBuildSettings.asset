@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/ProjectAssets/Scenes/Test-UI-scenes/UIFlux.unity
+    guid: 586d8798fa59a974ea16e53082ae4141
+  - enabled: 1
     path: Assets/ProjectAssets/Scenes/Map.unity
     guid: 228fac23914f6e045b5ac5b1761c61f6
   m_configObjects: {}
