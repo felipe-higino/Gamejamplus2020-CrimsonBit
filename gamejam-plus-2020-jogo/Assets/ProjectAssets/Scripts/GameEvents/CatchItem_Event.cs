@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OnCatchItem : MonoBehaviour
+public class CatchItem_Event : MonoBehaviour
 {
     public void On_CatchItem()
     {
