@@ -40,7 +40,8 @@ public class Room : MonoBehaviour
     public void CreateDecoration(){
         if(Decorations.Length < 1)return;
         int sort = Random.Range(0,Decorations.Length);
-        Instantiate(Decorations[sort], transform.position,Quaternion.identity);
+        GameObject decoration = Instantiate(Decorations[sort], transform.position,Quaternion.identity);
+        decoration.transform.SetParent(transform);
     }
 
 

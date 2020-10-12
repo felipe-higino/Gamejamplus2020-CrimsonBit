@@ -20,7 +20,8 @@ public class Item : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other) {
         if(other.tag.Equals("Player")){
-            transform.parent.gameObject.SetActive(false);
+            GameLoopManager.instance.RemoveItem(transform.parent.gameObject);
+            
             if(Vector3.Distance(enemy.position, player.position) > minDist){
                 int sort = Random.Range(1,4);
                 Vector3 newPos = other.transform.position;
@@ -36,6 +37,7 @@ public class Item : MonoBehaviour
                     newPos = newPos + other.transform.forward * -minDist;
                     enemy.position = newPos;
                 }
+                transform.parent.gameObject.SetActive(false);
             }
         }
     }

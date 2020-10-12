@@ -94,6 +94,7 @@ public class Enemy : MonoBehaviour
         if(other.transform.tag.Equals("Player")){
             player.enabled = false;
             Camera.main.GetComponent<CameraController>().enabled = false;
+            
         }
     }
 }

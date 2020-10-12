@@ -13,14 +13,21 @@ public class GameLoopManager : MonoBehaviour
     }
 
 
-    public List<Item> itens;
+    public List<GameObject> itens;
     public string level;
-    public GameObject goal;
-    public void AddItem(Item item){
+    GameObject goal;
+
+    public void setGoal(GameObject goal)
+    {
+        this.goal = goal;
+    }
+
+    public void AddItem(GameObject item){
         itens.Add(item);
     }
-    public void RemoveItem(Item item){
+    public void RemoveItem(GameObject item){
         itens.Remove(item);
+        VictoryCondition();
     }
     void VictoryCondition(){
         if(itens.Count < 1){
