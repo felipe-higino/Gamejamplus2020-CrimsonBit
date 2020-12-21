@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    PlayerController player;
+    PlayerFactory player;
     public float speed;
     Rigidbody rb;
     public Transform head;
     public float distance;
+    public GameObject lickingSound, gameOverScreen;
+
+    AnimationsController anim;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        player = GameObject.FindObjectOfType<PlayerController>();
+        player = GameObject.FindObjectOfType<PlayerFactory>();
+        anim = GetComponentInChildren<AnimationsController>();
+        gameOverScreen = GameObject.Find("GameOverScreen");
+        gameOverScreen.SetActive(false);
     }
 
     // Update is called once per frame
@@ -24,6 +30,7 @@ public class Enemy : MonoBehaviour
             RangeOfViewInArea(distance*1.5f,1f) ||
             getPlayer
         );
+        
     }
 
 
@@ -53,15 +60,17 @@ public class Enemy : MonoBehaviour
         Vector3 rot = head.eulerAngles;
         rot.x = 0f;
         rot.z = 0f;
-        if(nearby)
+        if(nearby){
             transform.rotation = Quaternion.Lerp(
                 transform.rotation,
                 Quaternion.Euler(new Vector3(0,rot.y,0)),
                 0.05f
             );
-        else{
+            //anim.SetAnimation("quadruped",true);
+        }else{
             rot.y +=45f;
             transform.eulerAngles = rot;
+            //anim.SetAnimation("quadruped",false);
         }
 
     }
@@ -93,8 +102,13 @@ public class Enemy : MonoBehaviour
     private void OnCollisionEnter(Collision other) {
         if(other.transform.tag.Equals("Player")){
             player.enabled = false;
-            Camera.main.GetComponent<CameraController>().enabled = false;
-            
+            Camera.main.GetComponent<CameraFactory>().enabled = false;
+            lickingSound.SetActive(true);
+            if(UIEvents.Instance != null)
+                UIEvents.Instance.Die.OnDie();
+            else
+                gameOverScreen.SetActive(true);
+
         }
     }
 }

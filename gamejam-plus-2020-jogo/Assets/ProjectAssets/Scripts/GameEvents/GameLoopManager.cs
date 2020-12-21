@@ -38,5 +38,11 @@ public class GameLoopManager : MonoBehaviour
     public void ReloadScene(){
         SceneManager.LoadScene(level);
     }
+    public void LoadScene(string level){
+        SceneManager.LoadScene(level);
+    }
+    public void QuitGame(){
+        Application.Quit();
+    }
 
 }

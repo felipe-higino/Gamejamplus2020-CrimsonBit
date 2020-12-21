@@ -5,11 +5,11 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     // Start is called before the first frame update
-    Transform player, enemy;
+    /* Transform player, enemy;
     public float minDist;
     void Start()
     {
-        player = GameObject.FindObjectOfType<PlayerController>().transform;
+        player = GameObject.FindObjectOfType<PlayerFactory>().transform;
         enemy = GameObject.FindObjectOfType<Enemy>().transform;
     }
 
@@ -17,12 +17,13 @@ public class Item : MonoBehaviour
     void Update()
     {
         
-    }
+    } */
     private void OnTriggerEnter(Collider other) {
         if(other.tag.Equals("Player")){
             GameLoopManager.instance.RemoveItem(transform.parent.gameObject);
+            transform.parent.gameObject.SetActive(false);
             
-            if(Vector3.Distance(enemy.position, player.position) > minDist){
+            /* if(Vector3.Distance(enemy.position, player.position) > minDist){
                 int sort = Random.Range(1,4);
                 Vector3 newPos = other.transform.position;
                 if(sort==1){
@@ -37,8 +38,7 @@ public class Item : MonoBehaviour
                     newPos = newPos + other.transform.forward * -minDist;
                     enemy.position = newPos;
                 }
-                transform.parent.gameObject.SetActive(false);
-            }
+            } */
         }
     }
 }

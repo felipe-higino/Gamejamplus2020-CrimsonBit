@@ -7,9 +7,9 @@ using UnityEngine.SceneManagement;
 public class S_GameLoop : Singleton<S_GameLoop>
 {
     //load or reload game
-    public void LoadGame()
+    public void LoadGame(string scene)
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(scene);
     }
 
     public void DestroyGame()
