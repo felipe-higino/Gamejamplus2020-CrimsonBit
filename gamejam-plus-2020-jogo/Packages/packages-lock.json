@@ -8,11 +8,11 @@
       "hash": "c5bd85b033ee9994cf7b4d711479e2602d42c639"
     },
     "com.felipe.felipe-utils": {
-      "version": "https://github.com/felipe-higino/my-unity-utils.git",
+      "version": "https://github.com/felipe-higino/my-unity-utils.git#1.0.0",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "bc5f3c5aa1112f63f2c8a4e882f10468c3789b75"
+      "hash": "b881335678596f448304092d95f9f382b6ed7a60"
     },
     "com.unity.collab-proxy": {
       "version": "1.2.16",
