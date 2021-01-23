@@ -6,7 +6,9 @@ public class CheckDistancePosition : StateDecision
 {
     
     [Tooltip("[Transform] Target is the object used to chech the distance")]
-    public Transform target;
+
+    [SerializeField]
+    private Transform target;
     public ComparisionMode condition;
     
     [Tooltip("[Float] The parameter used on comparision.")]

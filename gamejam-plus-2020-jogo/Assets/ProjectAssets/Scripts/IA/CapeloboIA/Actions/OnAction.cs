@@ -2,11 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoingNothing : StateAction
+public class OnAction : StateAction
 {
     // Start is called before the first frame update
-    public override void DoAction()
-    {
-        
-    }
 }

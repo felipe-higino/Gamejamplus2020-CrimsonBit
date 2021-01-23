@@ -11,11 +11,7 @@ public class MoveToPosition : StateAction
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-    }
-
-    public override void DoAction()
-    {
-        GoToPoint();
+        destination = transform.position;
     }
 
     Vector3 destination;
@@ -25,16 +21,34 @@ public class MoveToPosition : StateAction
         return this.destination;
     }
 
+    public void getDestination(FindInRadius location)
+    {
+        this.destination = location.objectFinded.position;
+    }
+
     public void setDestination(Vector3 destination)
     {
         this.destination = destination;
     }
+    Transform targetDestination;
+
+     public void GetTarget(Transform destiny){
+        setDestination(destiny.position);
+        GoToPoint();
+    }
+
 
     public void GoToPoint(){
-        Debug.Log("Going to Position");
-        /* Vector3 pos = transform.position;
-        pos += destination * velocity * Time.deltaTime;
-        rb.MovePosition(pos); */
+        transform.LookAt(destination);
+        CorrectRotation();
+        Vector3 pos = transform.position + transform.forward * velocity * Time.deltaTime;
+        rb.MovePosition(pos);
+    }
+
+    void CorrectRotation(){
+        Vector3 rot = transform.eulerAngles;
+        rot.x = rot.z = 0f;
+        transform.eulerAngles = rot;
     }
 
 

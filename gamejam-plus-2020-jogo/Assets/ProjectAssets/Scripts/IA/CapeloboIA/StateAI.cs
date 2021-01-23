@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class StateAI : MonoBehaviour
 {
 
@@ -10,7 +11,10 @@ public class StateAI : MonoBehaviour
     [Tooltip("Is the name of state, the use this for search the next state that need to execute.")]
     public string stateName;
 
+    [SerializeField]
     public List<StateAction> actions;
+
+    [SerializeField]
     public List<StateDecision> decisions;
 
     string newState;
