@@ -1,5 +1,19 @@
 {
   "dependencies": {
+    "com.coffee.upm-git-extension": {
+      "version": "https://github.com/mob-sakai/UpmGitExtension.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "c5bd85b033ee9994cf7b4d711479e2602d42c639"
+    },
+    "com.felipe.felipe-utils": {
+      "version": "https://github.com/felipe-higino/my-unity-utils.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "bc5f3c5aa1112f63f2c8a4e882f10468c3789b75"
+    },
     "com.unity.collab-proxy": {
       "version": "1.2.16",
       "depth": 0,
@@ -72,6 +86,13 @@
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.imgui": "1.0.0"
       }
+    },
+    "com.yasirkula.assetusagedetector": {
+      "version": "https://github.com/yasirkula/UnityAssetUsageDetector.git#v1.9.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "5a81e5011b5ee07233bb5744f31aad1f32514afa"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
