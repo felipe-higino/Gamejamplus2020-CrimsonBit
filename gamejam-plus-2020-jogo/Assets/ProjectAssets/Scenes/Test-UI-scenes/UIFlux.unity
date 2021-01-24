@@ -1254,7 +1254,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Folklorical Horror tales
+  m_text: '  folclorico'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 622233b92ddba74468c17bd7553ec976, type: 2}
   m_sharedMaterial: {fileID: -1446284748775456751, guid: 622233b92ddba74468c17bd7553ec976,
@@ -1899,7 +1899,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &693109684
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4641,7 +4641,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1382934073
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4868,7 +4868,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1415475046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4968,7 +4968,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1504205213
 Transform:
   m_ObjectHideFlags: 0

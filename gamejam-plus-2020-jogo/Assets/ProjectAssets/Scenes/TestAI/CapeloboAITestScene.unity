@@ -412,15 +412,27 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1839366359, guid: f4356b4fb9044554c970707d4e4dd93c, type: 3}
+      propertyPath: m_SpotAngle
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 2096701774, guid: f4356b4fb9044554c970707d4e4dd93c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2096701774, guid: f4356b4fb9044554c970707d4e4dd93c, type: 3}
+      propertyPath: torchLifeTime
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 1155224809671094365, guid: f4356b4fb9044554c970707d4e4dd93c,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2460410817159225363, guid: f4356b4fb9044554c970707d4e4dd93c,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3690649440781078681, guid: f4356b4fb9044554c970707d4e4dd93c,
         type: 3}
@@ -1005,6 +1017,9 @@ GameObject:
   - component: {fileID: 6491120665713756751}
   - component: {fileID: 6491120665713756750}
   - component: {fileID: 6491120665713756745}
+  - component: {fileID: 6491120665713756753}
+  - component: {fileID: 6491120665713756755}
+  - component: {fileID: 6491120665713756754}
   m_Layer: 0
   m_Name: Capelobo
   m_TagString: Untagged
@@ -1125,8 +1140,9 @@ MonoBehaviour:
   actions:
   - {fileID: 6491120665713756744}
   decisions:
+  - {fileID: 6491120665713756753}
   - {fileID: 6491120665713756749}
-  - {fileID: 6491120665713756745}
+  - {fileID: 6491120665713756743}
 --- !u!114 &6491120665713756749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1161,6 +1177,7 @@ MonoBehaviour:
   actions:
   - {fileID: 6491120665713756751}
   decisions:
+  - {fileID: 6491120665713756753}
   - {fileID: 6491120665713756749}
   - {fileID: 6491120665713756745}
 --- !u!114 &6491120665713756751
@@ -1206,6 +1223,56 @@ MonoBehaviour:
   actionsToDo:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6491120665713756753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6491120665713756742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc2ffa6746e26848acf72e170ba8e85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DecisionName: NearbyToAttack
+  IfTrue: GroundAttack
+  IfFalse: Moving
+  target: {fileID: 472865644}
+  condition: 1
+  distance: 2
+--- !u!114 &6491120665713756754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6491120665713756742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20dbfb700dfe8d549b5b6fadcb1ebcf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActionName: GroundAttack
+  actionsToDo:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &6491120665713756755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6491120665713756742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c8b472fc3a64bf4e970572e04b0ffd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateName: GroundAttack
+  actions:
+  - {fileID: 6491120665713756754}
+  decisions: []
 --- !u!33 &7395149610141623811
 MeshFilter:
   m_ObjectHideFlags: 0

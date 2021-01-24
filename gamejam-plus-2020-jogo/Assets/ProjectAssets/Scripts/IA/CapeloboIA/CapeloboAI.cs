@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class CapeloboAI : MonoBehaviour
 {
-    // Start is called before the first frame update
+    Rigidbody rb;
+
+    [SerializeField]Transform target;
+    [SerializeField]float speed;
+    [SerializeField]float timerToGetPosition;
     void Start()
     {
         
