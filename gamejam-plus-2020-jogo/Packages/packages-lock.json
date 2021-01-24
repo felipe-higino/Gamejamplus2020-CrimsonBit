@@ -1,8 +1,38 @@
 {
   "dependencies": {
+    "com.arimger.editor-toolbox": {
+      "version": "https://github.com/arimger/Unity-Editor-Toolbox.git#upm",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.editorcoroutines": "1.0.0"
+      },
+      "hash": "aa3c46f0fd15bf3d161c71b326c9d792ba12c31a"
+    },
+    "com.coffee.upm-git-extension": {
+      "version": "https://github.com/mob-sakai/UpmGitExtension.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "c5bd85b033ee9994cf7b4d711479e2602d42c639"
+    },
+    "com.felipe.felipe-utils": {
+      "version": "https://github.com/felipe-higino/my-unity-utils.git#1.0.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "b881335678596f448304092d95f9f382b6ed7a60"
+    },
     "com.unity.collab-proxy": {
       "version": "1.2.16",
       "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.editorcoroutines": {
+      "version": "1.0.0",
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
@@ -72,6 +102,13 @@
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.imgui": "1.0.0"
       }
+    },
+    "com.yasirkula.assetusagedetector": {
+      "version": "https://github.com/yasirkula/UnityAssetUsageDetector.git#v1.9.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "5a81e5011b5ee07233bb5744f31aad1f32514afa"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
