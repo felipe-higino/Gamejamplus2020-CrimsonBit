@@ -16,8 +16,8 @@ MonoBehaviour:
   - Type: 0
     Key: Audio
     IsRecursive: 0
-    SmallIcon: {fileID: 2800000, guid: 4372cfb8a7d3b5b4d9b899147b193270, type: 3}
-    LargeIcon: {fileID: 2800000, guid: 65e13c9890ffa26478506eda78683d5c, type: 3}
+    SmallIcon: {fileID: 2800000, guid: 4716e98c41d647c42b3b09d0d3fb7146, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 4716e98c41d647c42b3b09d0d3fb7146, type: 3}
   - Type: 0
     Key: Editor
     IsRecursive: 0
@@ -86,8 +86,8 @@ MonoBehaviour:
   - Type: 0
     Key: Scenes
     IsRecursive: 0
-    SmallIcon: {fileID: 2800000, guid: 40ff06f7c381dcf4391ca8342d04260c, type: 3}
-    LargeIcon: {fileID: 2800000, guid: f9d86cd8e960f584a9aa5a8ee61c4115, type: 3}
+    SmallIcon: {fileID: 2800000, guid: 2231b055567e26747a3932dc173f1b8d, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 2231b055567e26747a3932dc173f1b8d, type: 3}
   - Type: 0
     Key: Scripts
     IsRecursive: 0
@@ -158,3 +158,18 @@ MonoBehaviour:
     IsRecursive: 0
     SmallIcon: {fileID: 2800000, guid: 1395baad88220534f9a77e6e628f04c3, type: 3}
     LargeIcon: {fileID: 2800000, guid: 30971d38931ab5c4ea6ac4124bebfac4, type: 3}
+  - Type: 0
+    Key: 3D
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 267ee8f0660edc3408cc7d45cf87f3f8, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 267ee8f0660edc3408cc7d45cf87f3f8, type: 3}
+  - Type: 1
+    Key: Assets/_Project/Pieces
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: bc57cd94bde44ac488d06e7a070b1e7e, type: 3}
+    LargeIcon: {fileID: 2800000, guid: bc57cd94bde44ac488d06e7a070b1e7e, type: 3}
+  - Type: 1
+    Key: Assets/_Project/Systems
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: eccf04c437a7346489ca60bc10d251b2, type: 3}
+    LargeIcon: {fileID: 2800000, guid: eccf04c437a7346489ca60bc10d251b2, type: 3}
