@@ -17,28 +17,12 @@ public class TorchLight : MonoBehaviour
 
     [SerializeField] bool TorchIsOn = true;
 
-    [SerializeField][Range(25f,150f)] float lightRange = 150f;
+    [SerializeField] [Range(25f, 150f)] float lightRange = 150f;
 
 
     [Tooltip("Default is 300 (5 minutes).")]
-    [SerializeField] float torchLifeTime = 300f; 
+    [SerializeField] float torchLifeTime = 300f;
     float lifeTime;
-
-
-    private void Awake()
-    {
-        lifeTime = torchLifeTime;
-        
-        if(TorchIsOn)
-            TorchOn();
-        else
-            TorchOff();
-    }
-
-    private void Update() {
-        DecreaseTorch();
-        LightRange();
-    }
 
     [ContextMenu("Torch on")]
     public async void TorchOn()
@@ -60,12 +44,31 @@ public class TorchLight : MonoBehaviour
         handsAnimations?.SetBool("TorchActive", false);
     }
 
-    void LightRange(){
+    private void Awake()
+    {
+        lifeTime = torchLifeTime;
+
+        if (TorchIsOn)
+            TorchOn();
+        else
+            TorchOff();
+    }
+
+    private void Update()
+    {
+        DecreaseTorch();
+        LightRange();
+    }
+
+
+    void LightRange()
+    {
         spotLight.GetComponent<Light>().spotAngle = lightRange;
     }
 
-    float CalculateRange(float current, float max){
-       return (float)(current*100/max);
+    float CalculateRange(float current, float max)
+    {
+        return (float)(current * 100 / max);
     }
 
     float lightProtection;
@@ -75,25 +78,33 @@ public class TorchLight : MonoBehaviour
         return this.lightProtection;
     }
 
-    void DecreaseTorch(){
-        if(torchLifeTime > 0f)
+    void DecreaseTorch()
+    {
+        if (torchLifeTime > 0f)
             torchLifeTime -= Time.deltaTime;
 
-        if(torchLifeTime <= 0f){
-            lightRange = Mathf.Lerp(lightRange,25f,Time.deltaTime);
-            lightProtection = 0f; 
-            if(lightRange <= 26f)
+        if (torchLifeTime <= 0f)
+        {
+            lightRange = Mathf.Lerp(lightRange, 25f, Time.deltaTime);
+            lightProtection = 0f;
+            if (lightRange <= 26f)
                 TorchOff();
-        }else if(torchLifeTime <= lifeTime*0.3){
-            lightRange = Mathf.Lerp(lightRange,65f,Time.deltaTime);
-            lightProtection = 4.25f; 
-        }else if(torchLifeTime <= lifeTime*0.7){
-            lightRange = Mathf.Lerp(lightRange,110f,Time.deltaTime);
-            lightProtection = 8.25f; 
-        }else{
-            lightRange = Mathf.Lerp(lightRange,150f,Time.deltaTime);
-            lightProtection = 14.25f; 
-        }           
+        }
+        else if (torchLifeTime <= lifeTime * 0.3)
+        {
+            lightRange = Mathf.Lerp(lightRange, 65f, Time.deltaTime);
+            lightProtection = 4.25f;
+        }
+        else if (torchLifeTime <= lifeTime * 0.7)
+        {
+            lightRange = Mathf.Lerp(lightRange, 110f, Time.deltaTime);
+            lightProtection = 8.25f;
+        }
+        else
+        {
+            lightRange = Mathf.Lerp(lightRange, 150f, Time.deltaTime);
+            lightProtection = 14.25f;
+        }
     }
 
 }
