@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/ProjectAssets/Scenes/Introduction.unity
+    path: Assets/_Project/Pieces/Intro Movie/Introduction.unity
     guid: 9162413f506d81e4087e2d43e60e5c53
   - enabled: 1
     path: Assets/ProjectAssets/Scenes/Test-UI-scenes/UIFlux.unity
     guid: 586d8798fa59a974ea16e53082ae4141
   - enabled: 1
-    path: Assets/ProjectAssets/Scenes/Map.unity
+    path: Assets/_Project/Scenes/Map.unity
     guid: 228fac23914f6e045b5ac5b1761c61f6
   m_configObjects: {}
