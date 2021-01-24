@@ -45,6 +45,13 @@ public class MoveToPosition : StateAction
         rb.MovePosition(pos);
     }
 
+    public void GoAwayFromPoint(){
+        transform.LookAt(destination);
+        CorrectRotation();
+        Vector3 pos = transform.position - transform.forward * velocity * Time.deltaTime;
+        rb.MovePosition(pos);
+    }
+
     void CorrectRotation(){
         Vector3 rot = transform.eulerAngles;
         rot.x = rot.z = 0f;

@@ -9,31 +9,12 @@ public class StateDecision : MonoBehaviour
     [Header("[ Decision ]")]
     [Tooltip("Thats is just a label, to help on organization.")]
     public string DecisionName;
-
-    /* public List<StateAction> IfTrueDo, IfFalseDo;
-
-    public void MakeDecision() {
-        if(CheckCondition()){
-            if(IfTrueDo != null)
-                DoActions(IfTrueDo);
-        }else{
-            if(IfFalseDo != null)
-                DoActions(IfFalseDo);
-        }
-    }
-
-    void DoActions(StateAction action){
-        action.DoAction();
-    }
-
-    void DoActions(List<StateAction> actions){
-        foreach(StateAction action in actions)
-            action.DoAction();
-    } */
+    
     [Header("Change to state: ")]
     public string IfTrue, IfFalse;
 
     public string MakeDecision(){
+        Debug.Log("Decision: "+DecisionName);
         if(CheckCondition()){
             return IfTrue;
         }else{
