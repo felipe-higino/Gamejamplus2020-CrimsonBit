@@ -6,10 +6,11 @@ using UnityEngine.Events;
 [System.Serializable]
 public class StateAction : MonoBehaviour
 {
-    [Space(32)]
-    [Header("[ Action ]")]
+
+    [BeginGroup("[ Action ]")]
     [Tooltip("Thats is just a label, to help on organization.")]
     public string ActionName;
+    [EndGroup]
 
     public UnityEvent actionsToDo;
 

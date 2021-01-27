@@ -5,13 +5,24 @@ using UnityEngine;
 [System.Serializable]
 public class StateDecision : MonoBehaviour
 {
-    [Space(32)]
     [Header("[ Decision ]")]
     [Tooltip("Thats is just a label, to help on organization.")]
     public string DecisionName;
     
+    [BeginGroup("Conditions:")]
+    
     [Header("Change to state: ")]
-    public string IfTrue, IfFalse;
+    public string IfTrue;
+
+    [EndGroup]
+    [Header("Change to state: ")]
+    public string  IfFalse;
+
+    
+  
+
+
+
 
     public string MakeDecision(){
         Debug.Log("Decision: "+DecisionName);
