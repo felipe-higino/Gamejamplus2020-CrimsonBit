@@ -1007,19 +1007,19 @@ GameObject:
   - component: {fileID: 623647147083283431}
   - component: {fileID: 4768825245195675186}
   - component: {fileID: 9134026225401653722}
-  - component: {fileID: 6491120665713756744}
-  - component: {fileID: 6491120665713756743}
-  - component: {fileID: 6491120665713756747}
   - component: {fileID: 6491120665713756746}
-  - component: {fileID: 6491120665713756749}
-  - component: {fileID: 6491120665713756748}
+  - component: {fileID: 6491120665713756744}
   - component: {fileID: 6491120665713756752}
   - component: {fileID: 6491120665713756751}
-  - component: {fileID: 6491120665713756750}
+  - component: {fileID: 6491120665713756754}
+  - component: {fileID: 6491120665713756743}
+  - component: {fileID: 6491120665713756749}
   - component: {fileID: 6491120665713756745}
   - component: {fileID: 6491120665713756753}
+  - component: {fileID: 6491120665713756748}
+  - component: {fileID: 6491120665713756747}
+  - component: {fileID: 6491120665713756750}
   - component: {fileID: 6491120665713756755}
-  - component: {fileID: 6491120665713756754}
   m_Layer: 0
   m_Name: Capelobo
   m_TagString: Untagged
@@ -1041,7 +1041,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionName: CheckInRange
   IfTrue: Hunting
-  IfFalse: Idle
+  IfFalse: Moving
   target: {fileID: 472865644}
   condition: 1
   distance: 5
@@ -1102,10 +1102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FirstState: Idle
-  states:
-  - {fileID: 6491120665713756747}
-  - {fileID: 6491120665713756750}
-  - {fileID: 6491120665713756748}
+  states: []
+  stateName: 
 --- !u!114 &6491120665713756747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1119,11 +1117,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: Idle
-  actions:
-  - {fileID: 6491120665713756752}
-  decisions:
-  - {fileID: 6491120665713756743}
-  - {fileID: 6491120665713756745}
+  actions: []
+  decisions: []
 --- !u!114 &6491120665713756748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1137,12 +1132,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: Hunting
-  actions:
-  - {fileID: 6491120665713756744}
-  decisions:
-  - {fileID: 6491120665713756753}
-  - {fileID: 6491120665713756749}
-  - {fileID: 6491120665713756743}
+  actions: []
+  decisions: []
 --- !u!114 &6491120665713756749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1157,7 +1148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionName: CheckIsOnRange
   IfTrue: Hunting
-  IfFalse: 
+  IfFalse: Moving
   target: {fileID: 472865644}
   condition: 1
   distance: 9
@@ -1174,12 +1165,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: Moving
-  actions:
-  - {fileID: 6491120665713756751}
-  decisions:
-  - {fileID: 6491120665713756753}
-  - {fileID: 6491120665713756749}
-  - {fileID: 6491120665713756745}
+  actions: []
+  decisions: []
 --- !u!114 &6491120665713756751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1270,8 +1257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: GroundAttack
-  actions:
-  - {fileID: 6491120665713756754}
+  actions: []
   decisions: []
 --- !u!33 &7395149610141623811
 MeshFilter:

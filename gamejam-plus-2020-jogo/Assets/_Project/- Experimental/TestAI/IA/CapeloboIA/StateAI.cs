@@ -5,19 +5,44 @@ using UnityEngine;
 [System.Serializable]
 public class StateAI : MonoBehaviour
 {
-
-    [Space(32)]
     [Header("[ State AI ]")]
     [Tooltip("Is the name of state, the use this for search the next state that need to execute.")]
-    public string stateName;
+    [SerializeField]public string stateName;
 
-    [SerializeField]
+    string newState;
+    
+
+    #region Classes Rotuladas
+    [System.Serializable]
+    public struct StateActions
+    {
+        [SerializeField]string ActionName;
+        [SerializeField]public StateAction action;
+    }
+
+    [System.Serializable]
+    public struct StateDecisions
+    {
+        [SerializeField]string DecisionName;
+        [SerializeField]public StateDecision decision;
+    }
+    #endregion
+
+    [ReorderableList(ListStyle.Round)]
+    [LabelByChild("ActionName")]
+    public List<StateActions> actions;
+
+    [ReorderableList(ListStyle.Round)]
+    [LabelByChild("DecisionName")]
+    public List<StateDecisions> decisions;
+
+
+    /* [SerializeField]
     public List<StateAction> actions;
 
     [SerializeField]
-    public List<StateDecision> decisions;
+    public List<StateDecision> decisions; */
 
-    string newState;
 
     // Update is called once per frame
     public string RunState()
@@ -32,14 +57,14 @@ public class StateAI : MonoBehaviour
 
         return newState;
     }
-     void DoActions(List<StateAction> actions){
-        foreach(StateAction action in actions)
-            action.DoAction();
+     void DoActions(List<StateActions> actions){
+        foreach(StateActions Action in actions)
+            Action.action.DoAction();
     }
-    string MakeDecisions(List<StateDecision> decisions){
+    string MakeDecisions(List<StateDecisions> decisions){
         string state = "";
-        foreach(StateDecision decision in decisions){
-            state = decision.MakeDecision();
+        foreach(StateDecisions Decision in decisions){
+            state = Decision.decision.MakeDecision();
             if(state != "")
                 return state;
         }

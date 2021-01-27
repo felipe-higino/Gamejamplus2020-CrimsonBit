@@ -25,15 +25,15 @@ public class TorchLight : MonoBehaviour
     float lifeTime;
 
     [ContextMenu("Torch on")]
-    public async void TorchOn()
+    public void TorchOn()
     {
         //cilinder?.SetActive(true);
         lightRange = 150f;
         torchLifeTime = lifeTime;
         spotLight?.SetActive(true);
         handsAnimations?.SetBool("TorchActive", true);
-        await Task.Delay((int)(torchDuration * 1000));
-        TorchOff();
+        //await Task.Delay((int)(torchDuration * 1000));
+        //TorchOff();
     }
 
     [ContextMenu("Torch off")]
