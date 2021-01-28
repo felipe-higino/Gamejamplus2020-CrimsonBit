@@ -2,12 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveToPosition : StateAction
+public class CapeloboActions : MonoBehaviour
 {
     Rigidbody rb;
     
     [Tooltip("The velocity of this object gonna move to position.")]
     public float velocity;
+
+    public float getVelocity()
+    {
+        return this.velocity;
+    }
+
+    public void setVelocity(float velocity)
+    {
+        this.velocity = velocity;
+    }
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();

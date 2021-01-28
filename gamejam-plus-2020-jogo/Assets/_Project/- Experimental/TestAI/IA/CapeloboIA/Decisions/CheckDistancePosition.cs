@@ -5,13 +5,14 @@ using UnityEngine;
 public class CheckDistancePosition : StateDecision
 {
     
+    [BeginGroup("Specific Parameters:")]
     [Tooltip("[Transform] Target is the object used to chech the distance")]
 
     [SerializeField]
     private Transform target;
     public ComparisionMode condition;
     
-    [Tooltip("[Float] The parameter used on comparision.")]
+    [Tooltip("[Float] The parameter used on comparision."),EndGroup]
     public float distance;
 
     public override bool CheckCondition()

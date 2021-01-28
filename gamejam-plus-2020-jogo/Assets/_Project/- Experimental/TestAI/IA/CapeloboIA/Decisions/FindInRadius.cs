@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class FindInRadius : StateDecision
 {
+    [BeginGroup("Specific Parameters:")]
     public LayerMask layers;
-
+    [EndGroup]
     public float Radius;
 
     [HideInInspector]

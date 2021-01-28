@@ -5,9 +5,10 @@ using UnityEngine.Events;
 
 public class CheckTorchLight : StateDecision
 {
-    
+    [BeginGroup("Specific Parameters:")]
     [Header("This decision verify the distance between monster and the protected light area.")]
     public TorchLight torch;
+    [EndGroup]
     public ComparisionMode condition;
 
     /* [System.Serializable]
