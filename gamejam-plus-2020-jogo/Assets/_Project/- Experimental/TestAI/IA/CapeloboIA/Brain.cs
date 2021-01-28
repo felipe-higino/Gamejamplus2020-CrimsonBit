@@ -1,27 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEditor;
+
+#region Classes Rotuladas
+[System.Serializable]
+public struct States{
+    [SerializeField]public string name;
+    [SerializeField]public StateAI state;
+}
+#endregion
 
 [System.Serializable]
 public class Brain : MonoBehaviour
 {
     
-    [Space(32)]    
     [Header("[ BRAIN ]")]
     public string FirstState;
     
-    [System.Serializable]
-    public struct StateAI_ {
-        [SerializeField]string stateName;
-        [SerializeField]public StateAI stateAi;
-    }
-    
-    
-
+      
     [ReorderableList(ListStyle.Round)]
-    [LabelByChild("stateName")]
-    [SerializeField] List<StateAI_> states;
+    [LabelByChild("name")]
+    [SerializeField,Space(40)] List<States> states;
+
 
     [SerializeField,Space(40f),Disable,NewLabel("Current State:")]string stateName;
     
@@ -43,11 +45,11 @@ public class Brain : MonoBehaviour
             return null;
 
         if(states.Count == 1)
-            return states[0].stateAi;
+            return states[0].state;
 
-        foreach(StateAI_ State in states){
-            if(State.stateAi.stateName == stateSearch)
-                return State.stateAi;
+        foreach(States current in states){
+            if(current.name == stateSearch || current.state.stateName == stateSearch)
+                return current.state;
         }
 
         return null;        
@@ -62,4 +64,7 @@ public class Brain : MonoBehaviour
         }
         stateName = currentState.RunState();
     }
+
 }
+
+
