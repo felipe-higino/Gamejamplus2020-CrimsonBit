@@ -7,7 +7,6 @@ using UnityEditor;
 #region Classes Rotuladas
 [System.Serializable]
 public struct States{
-    [SerializeField]public string name;
     [SerializeField]public StateAI state;
 }
 #endregion
@@ -20,8 +19,8 @@ public class Brain : MonoBehaviour
     public string FirstState;
     
       
-    [ReorderableList(ListStyle.Round)]
-    [LabelByChild("name")]
+    //[ReorderableList(ListStyle.Round)]
+    //[LabelByChild("name")]
     [SerializeField,Space(40)] List<States> states;
 
 
@@ -48,7 +47,7 @@ public class Brain : MonoBehaviour
             return states[0].state;
 
         foreach(States current in states){
-            if(current.name == stateSearch || current.state.stateName == stateSearch)
+            if(/* current.name == stateSearch || */ current.state.name == stateSearch)
                 return current.state;
         }
 

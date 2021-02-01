@@ -1012,8 +1012,6 @@ GameObject:
   - component: {fileID: 6491120665713756749}
   - component: {fileID: 6491120665713756745}
   - component: {fileID: 6491120665713756753}
-  - component: {fileID: 6491120665713756748}
-  - component: {fileID: 6491120665713756747}
   - component: {fileID: 6491120665713756744}
   m_Layer: 0
   m_Name: Capelobo
@@ -1036,7 +1034,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionName: CheckInRange
   IfTrue: Hunting
-  IfFalse: Idle
+  IfFalse: 
   target: {fileID: 472865644}
   condition: 1
   distance: 5
@@ -1068,7 +1066,7 @@ MonoBehaviour:
   DecisionName: LastPosition
   IfTrue: Moving
   IfFalse: Idle
-  lastPosition: {fileID: 0}
+  lastPosition: {fileID: 6491120665713756744}
 --- !u!114 &6491120665713756746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1083,60 +1081,59 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FirstState: Idle
   states:
-  - name: Idle
-    state: {fileID: 6491120665713756748}
-  - name: Hunting
-    state: {fileID: 6491120665713756747}
+  - state:
+      name: Idle
+      doActions:
+        m_PersistentCalls:
+          m_Calls: []
+      decisions:
+      - DecisionName: CheckInRange
+        decision: {fileID: 6491120665713756743}
+      - DecisionName: LastPosition
+        decision: {fileID: 6491120665713756745}
+  - state:
+      name: Hunting
+      doActions:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 6491120665713756744}
+            m_MethodName: GetTarget
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 472865644}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      decisions:
+      - DecisionName: CheckInRange
+        decision: {fileID: 6491120665713756743}
+      - DecisionName: LastPosition
+        decision: {fileID: 6491120665713756745}
+  - state:
+      name: Moving
+      doActions:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 6491120665713756744}
+            m_MethodName: GoToPoint
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      decisions:
+      - DecisionName: CheckInRange
+        decision: {fileID: 6491120665713756743}
+      - DecisionName: LastPosition
+        decision: {fileID: 6491120665713756745}
   stateName: 
---- !u!114 &6491120665713756747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6491120665713756742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c8b472fc3a64bf4e970572e04b0ffd4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stateName: Hunting
-  doActions:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6491120665713756744}
-        m_MethodName: GetTarget
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 472865644}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  decisions:
-  - DecisionName: CheckInRange
-    decision: {fileID: 6491120665713756743}
---- !u!114 &6491120665713756748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6491120665713756742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c8b472fc3a64bf4e970572e04b0ffd4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stateName: Idle
-  doActions:
-    m_PersistentCalls:
-      m_Calls: []
-  decisions:
-  - DecisionName: CheckInRange
-    decision: {fileID: 6491120665713756743}
 --- !u!114 &6491120665713756749
 MonoBehaviour:
   m_ObjectHideFlags: 0
