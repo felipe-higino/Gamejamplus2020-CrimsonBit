@@ -23,6 +23,13 @@
       "dependencies": {},
       "hash": "b881335678596f448304092d95f9f382b6ed7a60"
     },
+    "com.garettbass.unityextensions.arraydrawer": {
+      "version": "https://github.com/garettbass/UnityExtensions.ArrayDrawer.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "612e27d3c536c8173ee5a1a6615a4f43fd084e53"
+    },
     "com.unity.collab-proxy": {
       "version": "1.2.16",
       "depth": 0,

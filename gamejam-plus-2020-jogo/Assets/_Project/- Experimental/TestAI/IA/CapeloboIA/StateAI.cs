@@ -13,18 +13,16 @@ public struct StateDecisions
 #endregion
 
 [System.Serializable]
-public class StateAI: MonoBehaviour
+public class StateAI
 {
     
     [Tooltip("Is the name of state, the use this for search the next state that need to execute.")]
-    [SerializeField]public string stateName;
+    [SerializeField]public string name;
 
     string newState;
 
     public UnityEvent doActions;
 
-    [LabelByChild("DecisionName")]
-    [ReorderableList(ListStyle.Round)]
     [SerializeField]public List<StateDecisions> decisions;
 
     public string RunState()
@@ -35,7 +33,7 @@ public class StateAI: MonoBehaviour
 
         //Repeat the Same State
         if(newState == null || newState == "" || newState.Length < 1)
-            newState = stateName;
+            newState = name;
 
         return newState;
     }
@@ -44,7 +42,8 @@ public class StateAI: MonoBehaviour
         string state = "";
         foreach(StateDecisions Decision in decisions){
             state = Decision.decision.MakeDecision();
-            if(state != "" && state != null)
+            bool isValid = (state != "" && state != null);
+            if(isValid)
                 return state;
         }
         return state;
