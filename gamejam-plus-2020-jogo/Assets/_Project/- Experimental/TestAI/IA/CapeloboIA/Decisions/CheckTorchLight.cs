@@ -11,18 +11,11 @@ public class CheckTorchLight : StateDecision
     [EndGroup]
     public ComparisionMode condition;
 
-    /* [System.Serializable]
-    public struct TorchCondition{
-        [SerializeField]public string description;
-        [SerializeField]public float checkLimit;
-        [SerializeField]public UnityEvent doAction;
-    }
-
-    public List<TorchCondition> conditions; */
 
 
     public override bool CheckCondition()
     {
+
         if(condition == ComparisionMode.BiggerOrEqual)
             return Vector3.Distance(transform.position, torch.transform.position) >= torch.getLightProtection();
 
@@ -38,7 +31,7 @@ public class CheckTorchLight : StateDecision
         if(condition == ComparisionMode.Equals)
             return Vector3.Distance(transform.position, torch.transform.position) == torch.getLightProtection();
 
-        
+        //if ComparisionMode.Different
         return Vector3.Distance(transform.position, torch.transform.position) != torch.getLightProtection();
 
 

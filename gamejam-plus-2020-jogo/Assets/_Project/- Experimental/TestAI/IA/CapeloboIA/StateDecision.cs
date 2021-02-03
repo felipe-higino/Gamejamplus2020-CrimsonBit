@@ -25,7 +25,6 @@ public class StateDecision : MonoBehaviour
 
 
     public string MakeDecision(){
-        Debug.Log("Decision: "+DecisionName);
         if(CheckCondition()){
             return IfTrue;
         }else{

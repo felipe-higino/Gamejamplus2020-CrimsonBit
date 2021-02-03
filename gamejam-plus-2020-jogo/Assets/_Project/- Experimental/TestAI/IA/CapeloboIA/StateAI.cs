@@ -30,18 +30,22 @@ public class StateAI
         doActions?.Invoke();
 
         newState = MakeDecisions(decisions);
-
+        
         //Repeat the Same State
-        if(newState == null || newState == "" || newState.Length < 1)
+        bool emptyState = (newState == null || newState == "" || newState.Length < 1);
+        if(emptyState)
             newState = name;
 
         return newState;
     }
 
+    [HideInInspector]
+    public string currentDecision;
     string MakeDecisions(List<StateDecisions> decisions){
         string state = "";
         foreach(StateDecisions Decision in decisions){
             state = Decision.decision.MakeDecision();
+            currentDecision = Decision.decision.DecisionName;
             bool isValid = (state != "" && state != null);
             if(isValid)
                 return state;
