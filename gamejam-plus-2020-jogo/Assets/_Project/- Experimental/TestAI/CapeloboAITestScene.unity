@@ -405,6 +405,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1164701262}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1026171803 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2096701774, guid: f4356b4fb9044554c970707d4e4dd93c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1164701262}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2374865d89996654fb82c8ce8a758d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1164701262
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -422,7 +434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2096701774, guid: f4356b4fb9044554c970707d4e4dd93c, type: 3}
       propertyPath: torchLifeTime
-      value: 300
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1155224809671094365, guid: f4356b4fb9044554c970707d4e4dd93c,
         type: 3}
@@ -1008,10 +1020,11 @@ GameObject:
   - component: {fileID: 4768825245195675186}
   - component: {fileID: 9134026225401653722}
   - component: {fileID: 6491120665713756746}
-  - component: {fileID: 6491120665713756743}
   - component: {fileID: 6491120665713756749}
   - component: {fileID: 6491120665713756745}
   - component: {fileID: 6491120665713756753}
+  - component: {fileID: 6491120665713756747}
+  - component: {fileID: 6491120665713756748}
   - component: {fileID: 6491120665713756744}
   m_Layer: 0
   m_Name: Capelobo
@@ -1020,24 +1033,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &6491120665713756743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6491120665713756742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bc2ffa6746e26848acf72e170ba8e85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DecisionName: CheckInRange
-  IfTrue: Hunting
-  IfFalse: 
-  target: {fileID: 472865644}
-  condition: 1
-  distance: 5
 --- !u!114 &6491120665713756744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1050,7 +1045,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: defd443e0ab0b3a43af223eb1c09cbd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 3
 --- !u!114 &6491120665713756745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1087,10 +1081,15 @@ MonoBehaviour:
         m_PersistentCalls:
           m_Calls: []
       decisions:
-      - DecisionName: CheckInRange
-        decision: {fileID: 6491120665713756743}
+      - DecisionName: NearbyToAttack
+        decision: {fileID: 6491120665713756753}
+      - DecisionName: CheckingTorch
+        decision: {fileID: 6491120665713756747}
+      - DecisionName: CheckInView
+        decision: {fileID: 6491120665713756748}
       - DecisionName: LastPosition
         decision: {fileID: 6491120665713756745}
+      currentDecision: 
   - state:
       name: Hunting
       doActions:
@@ -1107,11 +1106,27 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+          - m_Target: {fileID: 6491120665713756744}
+            m_MethodName: setVelocity
+            m_Mode: 4
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 3
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       decisions:
-      - DecisionName: CheckInRange
-        decision: {fileID: 6491120665713756743}
+      - DecisionName: NearbyToAttack
+        decision: {fileID: 6491120665713756753}
+      - DecisionName: CheckingTorch
+        decision: {fileID: 6491120665713756747}
+      - DecisionName: CheckIsOnRange
+        decision: {fileID: 6491120665713756749}
       - DecisionName: LastPosition
         decision: {fileID: 6491120665713756745}
+      currentDecision: 
   - state:
       name: Moving
       doActions:
@@ -1128,12 +1143,118 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+          - m_Target: {fileID: 6491120665713756744}
+            m_MethodName: setVelocity
+            m_Mode: 4
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 2
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       decisions:
-      - DecisionName: CheckInRange
-        decision: {fileID: 6491120665713756743}
+      - DecisionName: NearbyToAttack
+        decision: {fileID: 6491120665713756753}
+      - DecisionName: CheckingTorch
+        decision: {fileID: 6491120665713756747}
+      - DecisionName: CheckInView
+        decision: {fileID: 6491120665713756748}
       - DecisionName: LastPosition
         decision: {fileID: 6491120665713756745}
+      currentDecision: 
+  - state:
+      name: GroundAttack
+      doActions:
+        m_PersistentCalls:
+          m_Calls: []
+      decisions: []
+      currentDecision: 
+  - state:
+      name: StayAway
+      doActions:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 6491120665713756744}
+            m_MethodName: GetTarget
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 472865644}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 6491120665713756744}
+            m_MethodName: setVelocity
+            m_Mode: 4
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 1
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 6491120665713756744}
+            m_MethodName: GoAwayFromPoint
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      decisions:
+      - DecisionName: NearbyToAttack
+        decision: {fileID: 6491120665713756747}
+      - DecisionName: CheckingTorch
+        decision: {fileID: 6491120665713756753}
+      - DecisionName: CheckInView
+        decision: {fileID: 6491120665713756748}
+      currentDecision: 
   stateName: 
+  stateDecision: 
+--- !u!114 &6491120665713756747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6491120665713756742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c682350d5c34fd418208847a37030cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DecisionName: CheckingTorch
+  IfTrue: StayAway
+  IfFalse: 
+  torch: {fileID: 1026171803}
+  condition: 1
+--- !u!114 &6491120665713756748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6491120665713756742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d88b9fac49dc1c4c958dcccd167c5dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DecisionName: CheckInView
+  IfTrue: Hunting
+  IfFalse: 
+  radiusOfView: 16
+  angleRange: 0.2
+  head: {fileID: 146082424159625137}
+  target: {fileID: 472865644}
 --- !u!114 &6491120665713756749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1147,11 +1268,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DecisionName: CheckIsOnRange
-  IfTrue: Hunting
-  IfFalse: Moving
+  IfTrue: Moving
+  IfFalse: Hunting
   target: {fileID: 472865644}
   condition: 1
-  distance: 9
+  distance: 20
 --- !u!114 &6491120665713756753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1166,7 +1287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionName: NearbyToAttack
   IfTrue: GroundAttack
-  IfFalse: Moving
+  IfFalse: 
   target: {fileID: 472865644}
   condition: 1
   distance: 2

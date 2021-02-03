@@ -5,9 +5,7 @@ using UnityEngine;
 public class CapeloboActions : MonoBehaviour
 {
     Rigidbody rb;
-    
-    [Tooltip("The velocity of this object gonna move to position.")]
-    public float velocity;
+    float velocity;
 
     public float getVelocity()
     {
@@ -30,11 +28,6 @@ public class CapeloboActions : MonoBehaviour
     public Vector3 getDestination()
     {
         return this.destination;
-    }
-
-    public void getDestination(FindInRadius location)
-    {
-        this.destination = location.objectFinded.position;
     }
 
     public void setDestination(Vector3 destination)
