@@ -6,7 +6,7 @@ public class FieldOfView : StateDecision
 {
     [BeginGroup("Specific Parameters:")]
     [SerializeField]float radiusOfView;
-    [SerializeField,Range(0f,1f)]float angleRange;
+    [SerializeField,Tooltip("Zero is 180°, One is 0°"),Range(0f,1f)]float angleRange;
     //[SerializeField] LayerMask targetLayer;
     [SerializeField]Transform head;
     [EndGroup]

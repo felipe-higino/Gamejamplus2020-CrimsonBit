@@ -27,6 +27,12 @@ public class Brain : MonoBehaviour
     [SerializeField,Space(40f),Disable,NewLabel("Current State:")]string stateName;
     [SerializeField,Disable,NewLabel("Current Decision:")]string stateDecision;
     
+    bool brainExecution = true;
+    public void StopBrain(bool stop){
+        stateName = FirstState;
+        currentState = FindState(stateName);
+        brainExecution = !stop;
+    }
     void Start()
     {
         stateName = FirstState;
@@ -35,7 +41,7 @@ public class Brain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RunBrainStates();
+        RunBrainStates(brainExecution);
     }
 
     StateAI currentState;
@@ -57,7 +63,9 @@ public class Brain : MonoBehaviour
         return null;        
     }
 
-    void RunBrainStates(){
+    void RunBrainStates(bool runBrain){
+        if(!runBrain)return;
+
         currentState = FindState(stateName);
         if(currentState == null){
             stateName = "Not running any state...";
