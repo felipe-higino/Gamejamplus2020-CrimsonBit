@@ -42,17 +42,26 @@ public class CapeloboActions : MonoBehaviour
 
 
     public void GoToPoint(){
-        transform.LookAt(destination);
+        LookTo(destination);
         CorrectRotation();
         Vector3 pos = transform.position + transform.forward * velocity * Time.deltaTime;
         rb.MovePosition(pos);
     }
 
     public void GoAwayFromPoint(){
-        transform.LookAt(destination);
+        LookTo(destination);
         CorrectRotation();
         Vector3 pos = transform.position - transform.forward * velocity * Time.deltaTime;
         rb.MovePosition(pos);
+    }
+
+    void LookTo(Vector3 ObjPos){
+        Vector3 direction = (ObjPos - transform.position).normalized;
+        transform.rotation = Quaternion.Lerp(
+            transform.rotation,
+            Quaternion.LookRotation(direction, transform.up),
+            Time.deltaTime
+        );
     }
 
     void CorrectRotation(){

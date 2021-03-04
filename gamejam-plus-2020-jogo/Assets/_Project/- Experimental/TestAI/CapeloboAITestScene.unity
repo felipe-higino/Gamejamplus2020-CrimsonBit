@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &183249524
 Light:
   m_ObjectHideFlags: 0
@@ -1291,6 +1291,10 @@ MonoBehaviour:
         m_PersistentCalls:
           m_Calls: []
       decisions:
+      - DecisionName: CheckInView
+        decision: {fileID: 6491120665713756748}
+      - DecisionName: CheckingTorch
+        decision: {fileID: 6491120665713756747}
       - DecisionName: StunnedTime
         decision: {fileID: 6491120665713756751}
       currentDecision: 

@@ -17,7 +17,7 @@ public class CheckDistancePosition : StateDecision
 
     public override bool CheckCondition()
     {
-        float distance = Vector3.Distance(target.position, transform.position);
+        float distance = (target.position - transform.position).magnitude;
 
         if(target == null){
             Debug.Log("Target is NULL");

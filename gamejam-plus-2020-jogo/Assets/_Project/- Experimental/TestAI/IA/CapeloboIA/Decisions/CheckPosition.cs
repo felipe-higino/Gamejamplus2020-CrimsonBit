@@ -8,6 +8,6 @@ public class CheckPosition : StateDecision
     public CapeloboActions lastPosition;
 
     public override bool CheckCondition(){
-        return Vector3.Distance(transform.position, lastPosition.getDestination()) > 1.5f;
+        return (transform.position - lastPosition.getDestination()).magnitude > 1.5f;
     }
 }
